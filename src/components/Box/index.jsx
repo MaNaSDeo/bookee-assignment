@@ -1,28 +1,20 @@
 import "./Box.css";
 import moment from "moment";
 
-function Box() {
-  const data = {
-    id: "55d336a5-7c70-4ad9-8fc3-e97724085d09",
-    booked: true,
-    area: "Helsinki",
-    startTime: 1704868200000,
-    endTime: 1704875400000,
-  };
-
-  const startTime = moment(data.startTime).format("HH:mm");
-  const endTime = moment(data.endTime).format("HH:mm");
+function Box({ startTime, endTime, bookedStatus, area }) {
+  const startingTime = moment(startTime).format("HH:mm");
+  const endingTime = moment(endTime).format("HH:mm");
 
   return (
     <div className="box">
       <div className="time-place-details">
         <p className="time-details">
-          {startTime}-{endTime}
+          {startingTime}-{endingTime}
         </p>
-        <p className="place-details">{data.area}</p>
+        <p className="place-details">{area}</p>
       </div>
       <div className="booking-details">
-        {data.booked ? (
+        {bookedStatus ? (
           <button className="btn cancel-btn">Cancel</button>
         ) : (
           <button className="btn book-btn">Book</button>
