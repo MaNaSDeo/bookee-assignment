@@ -1,7 +1,8 @@
 import data from "./components/api/api.json";
 import "./App.css";
 // import Box from "./components/Box";
-import MyShift from "./components/MyShift";
+// import MyShift from "./components/MyShift";
+import AvailableShift from "./components/AvailableShift";
 
 function App() {
   const shiftData = data;
@@ -18,8 +19,8 @@ function App() {
 
   return (
     <div className="booking-page">
-      <MyShift shiftData={shiftData} />
-      {/*  */}
+      {/* <MyShift shiftData={shiftData} /> */}
+      <AvailableShift shiftData={shiftData} />
     </div>
   );
 }
