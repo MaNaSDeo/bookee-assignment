@@ -1,0 +1,37 @@
+.box {
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #a4b8d3;
+}
+.time-place-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.time-details {
+  color: #4f6c92;
+  text-align: left;
+}
+.place-details {
+  color: #a4b8d3;
+  text-align: left;
+}
+.btn {
+  width: 5.5rem;
+  height: 2rem;
+  background-color: #f7f7fb;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+.cancel-btn {
+  border: 1px solid #fe93b3;
+  color: #e2006a;
+}
+.book-btn {
+  border: 1px solid #55cbb2;
+  color: #16a64d;
+}
