@@ -8,7 +8,7 @@
   },
   {
     "id": "411fa36a-85e1-4d8e-ae44-f04f21e68f03",
-    "booked": true,
+    "booked": false,
     "area": "Helsinki",
     "startTime": 1704947400000,
     "endTime": 1704954600000
@@ -43,7 +43,7 @@
   },
   {
     "id": "742293db-510e-416e-9dda-9f3e5e9b2ae6",
-    "booked": true,
+    "booked": false,
     "area": "Turku",
     "startTime": 1704947400000,
     "endTime": 1704952800000
@@ -78,7 +78,7 @@
   },
   {
     "id": "cc1be14b-d3b3-41ec-afd7-31e38ef34723",
-    "booked": true,
+    "booked": false,
     "area": "Tampere",
     "startTime": 1704947400000,
     "endTime": 1704954600000
@@ -141,7 +141,7 @@
   },
   {
     "id": "095d6a40-227b-4ab3-a8be-91b27907ea05",
-    "booked": true,
+    "booked": false,
     "area": "Turku",
     "startTime": 1705215600000,
     "endTime": 1705224600000
@@ -155,7 +155,7 @@
   },
   {
     "id": "23388bbc-a90c-454e-9cfe-f387288cfe02",
-    "booked": true,
+    "booked": false,
     "area": "Helsinki",
     "startTime": 1705221000000,
     "endTime": 1705230000000
@@ -211,7 +211,7 @@
   },
   {
     "id": "81879d43-783c-4c2c-8e3f-3ec2d8fc0a6f",
-    "booked": true,
+    "booked": false,
     "area": "Tampere",
     "startTime": 1705289400000,
     "endTime": 1705300200000

@@ -1,10 +1,12 @@
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import moment from "moment";
 import ShiftByDay from "../ShiftByDay";
+import { ShiftContext } from "../../shift-context/ShiftContextProvide";
 
-function AvailableShift({ shiftData }) {
+function AvailableShift() {
+  const { shiftData } = useContext(ShiftContext);
   const [selectedTab, setSelectedTab] = useState(0);
   const [groupedByDate, setGroupedByDate] = useState({});
 
@@ -48,12 +50,21 @@ function AvailableShift({ shiftData }) {
         }}
         TabIndicatorProps={{
           style: {
-            backgroundColor: "white",
+            backgroundColor: "#f7f7fb",
           },
         }}
       >
         {areasArray.map((element) => (
-          <Tab label={element} key={element} className="filterHeading" />
+          <Tab
+            label={`${element} (${sortedByArea.get(element).length})`}
+            key={element}
+            style={{
+              color: "#004fb4",
+              fontSize: "1.2rem",
+              fontWeight: 500,
+              textTransform: "none",
+            }}
+          />
         ))}
       </Tabs>
       {Object.keys(groupedByDate).map((key) => {

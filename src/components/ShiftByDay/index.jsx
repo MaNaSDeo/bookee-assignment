@@ -2,7 +2,7 @@ import moment from "moment";
 import Box from "../Box";
 import "./ShiftByDay.css";
 
-function ShiftByDay({ date, dayShiftData, showArea }) {
+function ShiftByDay({ date, dayShiftData, myShift }) {
   const today = new Date().toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
@@ -42,23 +42,29 @@ function ShiftByDay({ date, dayShiftData, showArea }) {
       {headingDate && (
         <div className="heading-day">
           <p className="heading-date">{headingDate}</p>
-          <span>
-            {noOfShifts} {noOfShifts === 1 ? "shift" : "shifts"},
-          </span>
-          <span>
-            {shiftDurationHR} h {shiftDurationMM ? `${shiftDurationMM} m` : ""}
-          </span>
+          {myShift && (
+            <span>
+              {noOfShifts} {noOfShifts === 1 ? "shift" : "shifts"},
+            </span>
+          )}
+          {myShift && (
+            <span>
+              {shiftDurationHR} h{" "}
+              {shiftDurationMM ? `${shiftDurationMM} m` : ""}
+            </span>
+          )}
         </div>
       )}
       {dayShiftData &&
         dayShiftData.map((element) => (
           <Box
             key={element.id}
+            id={element.id}
             startTime={element.startTime}
             endTime={element.endTime}
             bookedStatus={element.booked}
             area={element.area}
-            showArea={showArea}
+            myShift={myShift}
           />
         ))}
     </div>

@@ -6,6 +6,8 @@ export const ShiftContext = createContext({
   activeTab: "MyShifts",
   shiftData: [],
   updateActiveTab: () => {},
+  handleShiftCancel: () => {},
+  handleShiftBooking: () => {},
 });
 
 export default function ShiftContextProvider({ children }) {
@@ -21,19 +23,32 @@ export default function ShiftContextProvider({ children }) {
   // }, []);
   const [activeTab, setActiveTab] = useState("MyShifts");
   const [shiftData, setShiftData] = useState(data);
-  console.log(handleActiveTab);
+  // console.log(shiftData);
 
   function handleActiveTab(value) {
     setActiveTab(value);
   }
-  // function handleShiftData(newData) {
-  //   setShiftData(newData);
-  // }
+  function handleShiftCancel(id) {
+    setShiftData((prevData) =>
+      prevData.map((shift) =>
+        shift.id === id ? { ...shift, booked: false } : shift
+      )
+    );
+  }
+  function handleShiftBooking(id) {
+    setShiftData((prevData) =>
+      prevData.map((shift) =>
+        shift.id === id ? { ...shift, booked: true } : shift
+      )
+    );
+  }
 
   const shiftValue = {
     activeTab: activeTab,
     shiftData: shiftData,
     updateActiveTab: handleActiveTab,
+    handleShiftCancel: handleShiftCancel,
+    handleShiftBooking: handleShiftBooking,
   };
   return (
     <ShiftContext.Provider value={shiftValue}>{children}</ShiftContext.Provider>

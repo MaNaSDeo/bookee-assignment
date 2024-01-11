@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import moment from "moment";
 import ShiftByDay from "../ShiftByDay";
+import { ShiftContext } from "../../shift-context/ShiftContextProvide";
 
-function MyShift({ shiftData }) {
+function MyShift() {
+  const { shiftData } = useContext(ShiftContext);
+
   const midNightTimeStamp = Number(moment().startOf("day").format("x")); //Timestamp of today's midnight.
-  // console.log(shiftData);
 
   // Group the objects by date
   const groupedByDate = shiftData
@@ -24,7 +27,7 @@ function MyShift({ shiftData }) {
               key={key}
               date={key}
               dayShiftData={groupedByDate[key]}
-              showArea={true}
+              myShift={true}
             />
           );
         })}
