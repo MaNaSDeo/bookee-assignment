@@ -20,7 +20,7 @@ function MyShift({ shiftData }) {
         Object.keys(groupedByDate).map((key) => {
           return (
             <ShiftByDay
-              key={groupedByDate[key]}
+              key={key}
               date={key}
               dayShiftData={groupedByDate[key]}
             />

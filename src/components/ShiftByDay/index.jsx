@@ -35,7 +35,6 @@ function ShiftByDay({ date, dayShiftData }) {
   const shiftDurationMM = Math.floor(
     (shiftDuration - shiftDurationHR * 3.6e6) / 6e4
   );
-
   return (
     <div>
       {headingDate && (
