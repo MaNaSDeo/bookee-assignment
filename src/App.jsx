@@ -1,26 +1,35 @@
 import data from "./components/api/api.json";
 import "./App.css";
-// import Box from "./components/Box";
-// import MyShift from "./components/MyShift";
+import MyShift from "./components/MyShift";
 import AvailableShift from "./components/AvailableShift";
+import { useState } from "react";
 
 function App() {
   const shiftData = data;
-  // console.log(shiftData);
-  // const data = [
-  //   {
-  //     id: "55d336a5-7c70-4ad9-8fc3-e97724085d09",
-  //     booked: true,
-  //     area: "Helsinki",
-  //     startTime: 1704868200000,
-  //     endTime: 1704875400000,
-  //   },
-  // ];
+  const [activeTab, setActiveTab] = useState("MyShifts");
 
   return (
     <div className="booking-page">
-      {/* <MyShift shiftData={shiftData} /> */}
-      <AvailableShift shiftData={shiftData} />
+      <div className="link-container">
+        <p
+          onClick={() => setActiveTab("MyShifts")}
+          className={activeTab === "MyShifts" ? "active-tab" : "inactive-tab"}
+        >
+          My shifts
+        </p>
+        <p
+          onClick={() => setActiveTab("AvailableShifts")}
+          className={
+            activeTab === "AvailableShifts" ? "active-tab" : "inactive-tab"
+          }
+        >
+          Available shifts
+        </p>
+      </div>
+      {activeTab === "MyShifts" && <MyShift shiftData={shiftData} />}
+      {activeTab === "AvailableShifts" && (
+        <AvailableShift shiftData={shiftData} />
+      )}
     </div>
   );
 }

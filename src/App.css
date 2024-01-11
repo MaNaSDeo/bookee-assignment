@@ -2,4 +2,23 @@
   width: 60vw;
   height: auto;
   background-color: #f7f8fb;
+  margin-top: 5rem;
+}
+.link-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #f1f4f8;
+}
+.link-container p {
+  margin: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.active-tab {
+  color: #004fb4;
+}
+.inactive-tab {
+  color: #a4bbd3;
 }
