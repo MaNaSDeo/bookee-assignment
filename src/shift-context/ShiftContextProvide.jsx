@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 import data from "../components/api/api.json";
 
 export const ShiftContext = createContext({
@@ -11,19 +11,34 @@ export const ShiftContext = createContext({
 });
 
 export default function ShiftContextProvider({ children }) {
-  // const [shiftData, setShiftData] = useState([]);
-  // const api_URL = "http://127.0.0.1:8080/shifts";
-  // // console.log(shiftData);
-  // function handleApi(api_URL) {
-  //   const response = axios.get(api_URL);
-  //   setShiftData(response);
-  // }
-  // useEffect(() => {
-  //   handleApi(api_URL);
-  // }, []);
+  const api_URL = "http://127.0.0.1:8080/shifts";
+
+  const storedData = JSON.parse(localStorage.getItem("shiftData"));
+  const [shiftData, setShiftData] = useState(storedData || []);
+
+  async function handleApi(api_URL) {
+    try {
+      const response = await axios.get(api_URL);
+      if (response.status === 200) {
+        setShiftData(response.data);
+      }
+    } catch (error) {
+      console.error(error);
+      setShiftData(data);
+    }
+  }
+
+  useEffect(() => {
+    if (!shiftData.length) {
+      handleApi(api_URL);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("shiftData", JSON.stringify(shiftData));
+  }, [shiftData]);
+
   const [activeTab, setActiveTab] = useState("MyShifts");
-  const [shiftData, setShiftData] = useState(data);
-  // console.log(shiftData);
 
   function handleActiveTab(value) {
     setActiveTab(value);
