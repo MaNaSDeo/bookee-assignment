@@ -38,6 +38,7 @@ function AvailableShift({ shiftData }) {
       }, {});
     setGroupedByDate(newGroupedByDate);
   }, [selectedTab]);
+
   return (
     <div>
       <Tabs

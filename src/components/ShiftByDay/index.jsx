@@ -2,7 +2,7 @@ import moment from "moment";
 import Box from "../Box";
 import "./ShiftByDay.css";
 
-function ShiftByDay({ date, dayShiftData }) {
+function ShiftByDay({ date, dayShiftData, showArea }) {
   const today = new Date().toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
@@ -17,6 +17,8 @@ function ShiftByDay({ date, dayShiftData }) {
   } else {
     headingDate = date;
   }
+
+  dayShiftData.sort((a, b) => a.startTime - b.startTime);
 
   const noOfShifts = dayShiftData && dayShiftData.length;
 
@@ -56,6 +58,7 @@ function ShiftByDay({ date, dayShiftData }) {
             endTime={element.endTime}
             bookedStatus={element.booked}
             area={element.area}
+            showArea={showArea}
           />
         ))}
     </div>

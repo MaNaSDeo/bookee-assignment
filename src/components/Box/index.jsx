@@ -1,9 +1,11 @@
 import "./Box.css";
 import moment from "moment";
 
-function Box({ startTime, endTime, bookedStatus, area }) {
+function Box({ startTime, endTime, bookedStatus, area, showArea }) {
   const startingTime = moment(startTime).format("HH:mm");
   const endingTime = moment(endTime).format("HH:mm");
+  const timeNowUnixMilis = Date.now();
+  // console.log(timeNowUnixMilis);
 
   return (
     <div className="box">
@@ -11,11 +13,21 @@ function Box({ startTime, endTime, bookedStatus, area }) {
         <p className="time-details">
           {startingTime}-{endingTime}
         </p>
-        <p className="place-details">{area}</p>
+        {showArea && <p className="place-details">{area}</p>}
       </div>
       <div className="booking-details">
         {bookedStatus ? (
-          <button className="btn cancel-btn">Cancel</button>
+          <button
+            className={
+              startTime > timeNowUnixMilis
+                ? "btn cancel-btn"
+                : "btn disabled-cancel-btn"
+            }
+            disabled={startTime < timeNowUnixMilis}
+            onClick={() => console.log("working")}
+          >
+            Cancel
+          </button>
         ) : (
           <button className="btn book-btn">Book</button>
         )}

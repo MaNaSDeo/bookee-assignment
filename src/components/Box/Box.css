@@ -24,14 +24,19 @@
   height: 2rem;
   background-color: #f7f7fb;
   border-radius: 1rem;
-  cursor: pointer;
   font-weight: 500;
 }
 .cancel-btn {
   border: 1px solid #fe93b3;
   color: #e2006a;
+  cursor: pointer;
 }
 .book-btn {
   border: 1px solid #55cbb2;
   color: #16a64d;
+  cursor: pointer;
+}
+.disabled-cancel-btn {
+  border: 1px solid #fe93b3;
+  color: #fe93b3;
 }
