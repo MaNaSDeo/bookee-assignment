@@ -1,24 +1,24 @@
-import data from "../api/api.json";
+import { useContext } from "react";
 import "./LandingPage.css";
 import MyShift from "../MyShift";
 import AvailableShift from "../AvailableShift";
-import { useState } from "react";
+
+import { ShiftContext } from "../../shift-context/ShiftContextProvide";
 
 function LandingPage() {
-  const shiftData = data;
-  const [activeTab, setActiveTab] = useState("MyShifts");
+  const { activeTab, shiftData, updateActiveTab } = useContext(ShiftContext);
 
   return (
     <div className="booking-page">
       <div className="link-container">
         <p
-          onClick={() => setActiveTab("MyShifts")}
+          onClick={() => updateActiveTab("MyShifts")}
           className={activeTab === "MyShifts" ? "active-tab" : "inactive-tab"}
         >
           My shifts
         </p>
         <p
-          onClick={() => setActiveTab("AvailableShifts")}
+          onClick={() => updateActiveTab("AvailableShifts")}
           className={
             activeTab === "AvailableShifts" ? "active-tab" : "inactive-tab"
           }

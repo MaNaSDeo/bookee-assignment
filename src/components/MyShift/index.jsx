@@ -3,7 +3,7 @@ import ShiftByDay from "../ShiftByDay";
 
 function MyShift({ shiftData }) {
   const midNightTimeStamp = Number(moment().startOf("day").format("x")); //Timestamp of today's midnight.
-  console.log(shiftData);
+  // console.log(shiftData);
 
   // Group the objects by date
   const groupedByDate = shiftData

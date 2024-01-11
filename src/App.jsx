@@ -1,10 +1,11 @@
 import LandingPage from "./components/LandingPage";
+import ShiftContextProvider from "./shift-context/ShiftContextProvide";
 
 function App() {
   return (
-    <div>
+    <ShiftContextProvider>
       <LandingPage />
-    </div>
+    </ShiftContextProvider>
   );
 }
 
